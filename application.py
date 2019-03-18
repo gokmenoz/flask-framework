@@ -20,7 +20,7 @@ def graph(sym,yr,month):
     p = figure(plot_width=600, plot_height=400)
     x_axis=[i for i in range(len(df.values))]
     p.line(x_axis,df['4. close'].iloc[::-1], line_width=2)
-    return components(p)
+    return components(p)[1]+components(p)[0]
 
 app = Flask(__name__)
 
@@ -41,7 +41,7 @@ def hello2():
     symbol=request.form['symbol_lulu']
     year=request.form['year_lulu']
     month=request.form['month_lulu']
-    return render_template('stock.html',symbol=symbol,year=year,month=month,script=graph(symbol,year,month)[0],div=graph(symbol,year,month)[1])
+    return render_template('stock.html',symbol=symbol,year=year,month=month,text=graph(symbol,year,month))
     
 if __name__ == "__main__":
     app.run(debug=False)
