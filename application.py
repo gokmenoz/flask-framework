@@ -11,19 +11,13 @@ def index_lulu():
 def static_file(path):
     return app.send_static_file(os.path.join('static', path))
 
-@app.route('/ZQK.html',methods=['GET','POST'])
+@app.route('/stockticker.html',methods=['GET','POST'])
 def hello1():
-    if request.method=='GET':
-        return render_template('ZQK.html',ticker='ZQK')
-    else:
-        return request.form['name_lulu']+request.form['age_lulu']
-    
-@app.route('/ZTS.html',methods=['GET','POST'])
+    return render_template('stockticker.html')
+        
+@app.route('/stock.html',methods=['GET','POST'])
 def hello2():
-    if request.method=='GET':
-        return render_template('ZTS.html')
-    else:
-        return render_template('ZTS.html',name=request.form['name_lulu'],age=request.form['age_lulu'])
-
+    return render_template('stock.html',symbol=request.form['symbol_lulu'],month=request.form['month_lulu'])
+    
 if __name__ == "__main__":
     app.run(debug=False)

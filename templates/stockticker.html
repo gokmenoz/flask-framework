@@ -63,20 +63,23 @@ p {
 </div>
 
 
-graph here for the index {{ticker}}
+Please enter a valid stock symbol and month:
 <div class=metanav>
-<form id='stock_info_input' method='post' action="{{ticker}}.html" >
+<form id='stock_info_input' method='post' action="stock.html" >
       <p>
-    Name: <input type='text' name='name_lulu' />
+    Stock symbol: <input type='text' name='symbol_lulu' />
       </p>
       <p>
-    Age: <input type='text' name='age_lulu' />
+    Month: <input type='text' name='month_lulu' />
       </p>
       <p>
     <input type='submit' value='Submit' />
       </p>
 </form>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 
 
