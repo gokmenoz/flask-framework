@@ -1,5 +1,26 @@
 from flask import Flask,render_template,request
 import os
+import requests
+import pandas as pd
+from bokeh.plotting import figure
+from bokeh.embed import components
+
+link_start='https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol='
+link_end='&outputsize=full&apikey=R2QQ29L68BZH01JJ'
+
+def graph(sym,yr,month):
+    response=requests.get(link_start+sym+link_end)
+    data=response.json()['Time Series (Daily)']
+
+    df=pd.DataFrame(data)
+    df=df[[col for col in df.columns if col[0:4]==yr and col[5:7]==month]]
+    df=df[df.index=='4. close']
+    df=df.T
+    
+    p = figure(plot_width=600, plot_height=400)
+    x_axis=[i for i in range(len(df.values))]
+    p.line(x_axis,df['4. close'].iloc[::-1], line_width=2)
+    return components(p)
 
 app = Flask(__name__)
 
@@ -17,7 +38,10 @@ def hello1():
         
 @app.route('/stock.html',methods=['GET','POST'])
 def hello2():
-    return render_template('stock.html',symbol=request.form['symbol_lulu'],month=request.form['month_lulu'])
+    symbol=request.form['symbol_lulu']
+    year=request.form['year_lulu'
+    month=request.form['month_lulu']
+    return render_template('stock.html',symbol=symbol,year=year,month=month,script=graph(symbol,year,month)[0],div=graph(symbol,year,month)[1])
     
 if __name__ == "__main__":
     app.run(debug=False)

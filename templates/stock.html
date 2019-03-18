@@ -63,12 +63,15 @@ p {
 </div>
 
 
-Closing prices for {{symbol}} on {{month}}
+Closing prices for {{symbol}} on {{month}}, {{year}}
 graph here
 <div class=metanav>
 <form id='stock_info_input' method='post' action="stock.html" >
       <p>
     Stock symbol: <input type='text' name='symbol_lulu' />
+      </p>
+    <p>
+    Year: <input type='text' name='year_lulu' />
       </p>
       <p>
     Month: <input type='text' name='month_lulu' />
@@ -78,6 +81,9 @@ graph here
       </p>
 </form>
 </div>
+
+{{div}}
+{{script}}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
