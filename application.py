@@ -39,7 +39,7 @@ def hello1():
 @app.route('/stock.html',methods=['GET','POST'])
 def hello2():
     symbol=request.form['symbol_lulu']
-    year=request.form['year_lulu'
+    year=request.form['year_lulu']
     month=request.form['month_lulu']
     return render_template('stock.html',symbol=symbol,year=year,month=month,script=graph(symbol,year,month)[0],div=graph(symbol,year,month)[1])
     
