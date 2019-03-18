@@ -20,7 +20,8 @@ def graph(sym,yr,month):
     p = figure(plot_width=600, plot_height=400)
     x_axis=[i for i in range(len(df.values))]
     p.line(x_axis,df['4. close'].iloc[::-1], line_width=2)
-    return components(p)[1][26:62],components(p)[0][32:-9]
+    output_file('image.html')
+    show(p)
 
 app = Flask(__name__)
 
@@ -35,6 +36,14 @@ def static_file(path):
 @app.route('/stockticker.html',methods=['GET','POST'])
 def hello1():
     return render_template('stockticker.html')
+
+@app.route('/image.html',methods=['GET','POST'])
+def hello3():
+    symbol=request.form['symbol_lulu']
+    year=request.form['year_lulu']
+    month=request.form['month_lulu']
+    graph(symbol,year,month)
+    return render_template('image.html')
         
 @app.route('/stock.html',methods=['GET','POST'])
 def hello2():
