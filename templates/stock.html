@@ -83,11 +83,27 @@ graph here
 </form>
 </div>
 
-<h1>{{text}}</h1>
-<h2></h2>
 <script>
-$('h1').html(function(i,origText){return origText};);
+function myFunction(num) {
+  return num.toString();
+}
 </script>
+
+
+<h1></h1>
+
+<script>
+$('h1').html(myFunction({{text}}));
+</script>
+
+<script>
+function myFunction(num) {
+  var n = num.toString();
+  return n;
+}
+</script>
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
