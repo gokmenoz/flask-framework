@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index_lulu():
-    return render_template('ZUMZ.html')
+    return render_template('stockticker.html')
     
 @app.route('/static/<path:path>',methods=['GET','POST'])
 def static_file(path):
