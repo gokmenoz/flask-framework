@@ -42,7 +42,6 @@ def hello3():
     symbol=request.form['symbol_lulu']
     year=request.form['year_lulu']
     month=request.form['month_lulu']
-    graph(symbol,year,month)
     return render_template('image.html')
         
 @app.route('/stock.html',methods=['GET','POST'])
