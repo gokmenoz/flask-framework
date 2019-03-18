@@ -3,7 +3,7 @@ import os
 import requests
 import pandas as pd
 from bokeh.plotting import figure
-from bokeh.embed import components
+from bokeh.io import output_file,save
 
 link_start='https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol='
 link_end='&outputsize=full&apikey=R2QQ29L68BZH01JJ'
@@ -21,7 +21,7 @@ def graph(sym,yr,month):
     x_axis=[i for i in range(len(df.values))]
     p.line(x_axis,df['4. close'].iloc[::-1], line_width=2)
     output_file('image.html')
-    show(p)
+    save(p)
 
 app = Flask(__name__)
 
@@ -42,6 +42,7 @@ def hello3():
     symbol=request.form['symbol_lulu']
     year=request.form['year_lulu']
     month=request.form['month_lulu']
+    graph(symbol,year,month)
     return render_template('image.html')
         
 @app.route('/stock.html',methods=['GET','POST'])
