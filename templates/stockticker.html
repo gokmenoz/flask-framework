@@ -13,6 +13,9 @@
         <script type="text/javascript">
             Bokeh.set_log_level("info");
         </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="http://cdn.pydata.org/bokeh/release/bokeh-1.0.4.min.js"></script>
+<script src="http://cdn.pydata.org/bokeh/release/bokeh-widgets-1.0.4.min.js"></script>
 <style>
 html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 .w3-sidebar {
@@ -63,23 +66,46 @@ p {
 </div>
 
 
-Please enter a valid stock symbol and month:
 <div class=metanav>
 <form id='stock_info_input' method='post' action="stock.html" >
       <p>
     Stock symbol: <input type='text' name='symbol_lulu' />
       </p>
-      <p>
+    <p>
     Year: <input type='text' name='year_lulu' />
       </p>
-    <p>
-    Month: <input type='text' name='month_lulu' />
-      </p>
       <p>
-    <input type='submit' value='Submit' />
+    Month: <select name='month_lulu'>
+  <option id='01' value="01">Jan</option>
+  <option id='02' value="02">Feb</option>
+  <option id='03' value="03">Mar</option>
+  <option id='04' value="04">Apr</option> 
+  <option id='05' value="05">May</option>
+  <option id='06' value="06">Jun</option>
+  <option id='07' value="07">Jul</option>
+  <option id='08' value="08">Aug</option> 
+  <option id='09' value="09">Sep</option>
+  <option id='10' value="10">Oct</option>
+  <option id='11' value="11">Nov</option>
+  <option id='12' value="12">Dec</option> 
+  
+           </select>
+    </p>
+<p>
+Type: <select name='type_lulu'>
+  <option id='1. open' value="1. open">Opening</option>
+  <option id='4. close' value="4. close">Closing</option>
+  <option id='2. high' value="2. high">Highest</option>
+  <option id='3. low' value="3. low">Lowest</option> 
+             </select>
+      </p>
+  
+      <p>
+    <input type='submit' value='Submit'/>
       </p>
 </form>
 </div>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

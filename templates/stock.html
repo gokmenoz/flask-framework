@@ -60,14 +60,12 @@ p {
 
 
 <div class="w3-bar w3-black">
-  <a href="/" class="w3-bar-item w3-button">ZUMZ</a>
-  <a href="ZTS.html" class="w3-bar-item w3-button">ZTS</a>
-  <a href="ZQK.html" class="w3-bar-item w3-button">ZQK</a>
+  <div class="w3-bar-item">Stock Ticker</div>
+  <a href="/" class="w3-bar-item w3-button">Home</a>
+  <a href="GitHub.html" class="w3-bar-item w3-button">GitHub</a>
 </div>
 
 
-Closing prices for {{symbol}} on {{month}}, {{year}}
-graph here
 <div class=metanav>
 <form id='stock_info_input' method='post' action="stock.html" >
       <p>
@@ -77,13 +75,45 @@ graph here
     Year: <input type='text' name='year_lulu' />
       </p>
       <p>
-    Month: <input type='text' name='month_lulu' />
+    Month: <select name='month_lulu'>
+  <option id='01' value="01">Jan</option>
+  <option id='02' value="02">Feb</option>
+  <option id='03' value="03">Mar</option>
+  <option id='04' value="04">Apr</option> 
+  <option id='05' value="05">May</option>
+  <option id='06' value="06">Jun</option>
+  <option id='07' value="07">Jul</option>
+  <option id='08' value="08">Aug</option> 
+  <option id='09' value="09">Sep</option>
+  <option id='10' value="10">Oct</option>
+  <option id='11' value="11">Nov</option>
+  <option id='12' value="12">Dec</option> 
+  
+           </select>
+    </p>
+<p>
+Type: <select name='type_lulu'>
+  <option id='1. open' value="1. open">Opening</option>
+  <option id='4. close' value="4. close">Closing</option>
+  <option id='2. high' value="2. high">Highest</option>
+  <option id='3. low' value="3. low">Lowest</option> 
+             </select>
       </p>
+  
       <p>
-    <input type='submit' value='Submit' />
+    <input type='submit' value='Submit'/>
       </p>
 </form>
 </div>
+
+<h2> prices for {{symbol}} on {{year}}, </h2>
+
+<script>
+  var x=document.getElementById('{{price}}').innerHTML;
+  $('h2').prepend(x)
+  var x=document.getElementById('{{month}}').innerHTML;
+  $('h2').append(x)
+</script>
 
 {{div|safe}}
 {{script|safe}}
