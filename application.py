@@ -46,11 +46,14 @@ def hello2():
     year=request.form['year_lulu']
     month=request.form['month_lulu']
     price=request.form['type_lulu']
-    df=get_data(symbol)
-    years=[str(i) for i in range(int(start_year_finder(df)),2020)]
+    
     if symbol not in company_list['Symbol'].values:
         return 'Please enter a valid stock symbol'
-    elif year not in years:
+    
+    df=get_data(symbol)
+    years=[str(i) for i in range(int(start_year_finder(df)),2020)]
+    
+    if year not in years:
         return 'There is no data for this year'
     elif year=='2019' and int(month)>3:
         return 'Please enter a date before Apr 2019'
