@@ -36,10 +36,6 @@ app = Flask(__name__)
 def index_lulu():
     return render_template('stockticker.html')
     
-@app.route('/static/<path:path>')
-def static_file(path):
-    return app.send_static_file(os.path.join('static', path))
-
 @app.route('/stock.html',methods=['POST'])
 def hello2():
     symbol=request.form['symbol_lulu']
