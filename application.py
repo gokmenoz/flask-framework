@@ -6,7 +6,7 @@ from bokeh.plotting import figure
 from bokeh.embed import components
 from bokeh.models import Range1d
 
-api_key=os.environ['api_key']
+api_key=os.environ('api_key')
 link_start='https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol='
 link_end='&outputsize=full&apikey='+api_key
 company_list=pd.read_table('static/NASDAQ.txt')
@@ -39,10 +39,10 @@ def index_lulu():
     
 @app.route('/stock.html',methods=['POST'])
 def hello2():
-    symbol=request.form['symbol_lulu']
-    year=request.form['year_lulu']
-    month=request.form['month_lulu']
-    price=request.form['type_lulu']
+    symbol=request.form.get('symbol_lulu')
+    year=request.form.get('year_lulu')
+    month=request.form.get('month_lulu')
+    price=request.form.get('type_lulu')
     
     if symbol not in company_list['Symbol'].values:
         return 'Please enter a valid stock symbol'
