@@ -6,7 +6,7 @@ from bokeh.plotting import figure
 from bokeh.embed import components
 from bokeh.models import Range1d
 
-api_key=os.environ('api_key')
+api_key=os.environ['api_key']
 link_start='https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol='
 link_end='&outputsize=full&apikey='+api_key
 company_list=pd.read_table('static/NASDAQ.txt')
